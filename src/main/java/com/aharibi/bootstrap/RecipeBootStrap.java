@@ -5,6 +5,8 @@ import com.aharibi.repositories.CategoryRepository;
 import com.aharibi.repositories.RecipeRepository;
 import com.aharibi.repositories.UnitOfMeasureRepository;
 import com.aharibi.repositories.reactive.CategoryReactiveRepository;
+import com.aharibi.repositories.reactive.RecipeReactiveRepository;
+import com.aharibi.repositories.reactive.UnitOfMeasureReactiveRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -25,10 +27,6 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
 
-    @Autowired
-    CategoryReactiveRepository categoryReactiveRepository;
-
-
     public RecipeBootStrap(CategoryRepository categoryRepository,
                            RecipeRepository recipeRepository,
                            UnitOfMeasureRepository unitOfMeasureRepository) {
@@ -45,11 +43,6 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         loadUom();
         recipeRepository.saveAll(getRecipes());
         log.debug("Loading Bootstrap Data");
-
-        System.err.println("########################################");
-        log.error(categoryReactiveRepository.count().block().toString());
-        System.err.println("########################################");
-
     }
 
     private void loadCategories(){
