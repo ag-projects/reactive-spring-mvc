@@ -66,7 +66,7 @@
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
                                     <select class="form-control" th:field="*{difficulty}">
-                                        <option th:each="difficultyValue : ${T(com.agharibi.springmvcmongodb.domain.Difficulty).values()}"
+                                        <option th:each="difficultyValue : ${T(com.aharibi.domain.Difficulty).values()}"
                                                 th:value="${difficultyValue.name()}"
                                                 th:text="${difficultyValue.name()}"
                                         >val</option>

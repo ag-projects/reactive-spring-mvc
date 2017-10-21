@@ -2,18 +2,18 @@ package com.aharibi.services;
 
 import com.aharibi.commands.RecipeCommand;
 import com.aharibi.domain.Recipe;
-
-import java.util.Set;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 public interface RecipeService {
 
-    Set<Recipe> getRecipes();
+    Flux<Recipe> getRecipes();
 
-    Recipe findById(String id);
+    Mono<Recipe> findById(String id);
 
-    RecipeCommand saveRecipeCommand(RecipeCommand command);
+    Mono<RecipeCommand> saveRecipeCommand(RecipeCommand command);
 
-    RecipeCommand findCommandById(String aLong);
+    Mono<RecipeCommand> findCommandById(String aLong);
 
-    void deleteById(String id);
+    Mono<Void> deleteById(String id);
 }
