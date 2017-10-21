@@ -22,8 +22,6 @@ public class Recipe {
     private Byte[] image;
     private Difficulty difficulty;
     private Notes notes;
-
-    @DBRef
     private Set<Category> categories = new HashSet<>();
     private Set<Ingredient> ingredients = new HashSet<>();
 
