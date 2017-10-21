@@ -2,11 +2,12 @@ package com.aharibi.services;
 
 
 import com.aharibi.commands.IngredientCommand;
+import reactor.core.publisher.Mono;
 
 public interface IngredientService {
 
-    IngredientCommand findByRecipeIdAndIngredientId(String recipeId, String id);
-    IngredientCommand saveIngredientCommand(IngredientCommand command);
+    Mono<IngredientCommand> findByRecipeIdAndIngredientId(String recipeId, String id);
+    Mono<IngredientCommand> saveIngredientCommand(IngredientCommand command);
 
-    void deleteById(String recipeId, String id);
+    Mono<Void> deleteById(String recipeId, String id);
 }
